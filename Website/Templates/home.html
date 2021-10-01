@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+
+    <h1 align="center">Book Management System</h1>
+    <ul class="list-group list-group-flush" id="notes">
+      {% for note in user.notes %}
+      <li class="list-group-item">
+        <label for="book_id">Book id</label>
+        {{ note.book_id }}
+        <br>
+        <label for="book_name">Book name</label>
+        {{ note.book_name }}
+        <br>
+        <label for="book_genre">Book genre</label>
+        {{ note.book_genre }}
+        <br>
+        <label for="book_author">Book author</label>
+        {{ note.book_author }}
+        <br>
+        <label for="book_description">Book description</label>
+        {{ note.book_description }}
+        <br>
+
+
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+    <br><br>
+    <br><br>
+    <form method = 'POST'>
+
+        <div align="center">
+            <label for="book_id">Book id</label>
+            <input type="number" id="book_id" name="book_id"><br><br>
+            <br />
+          </div>
+      <div align="center">
+        <label for="book_name">Book name</label>
+        <input type="text" id="book_name" name="book_name"><br><br>
+
+      <br />
+      </div>
+        <div align="center">
+        <label for="book_genre">Book genre</label>
+        <input type="text" id="book_genre" name="book_genre"><br><br>
+
+      <br />
+      </div>
+      <div align="center">
+        <label for="book_author">Book author</label>
+        <input type="text" id="book_author" name="book_author"><br><br>
+        <br />
+        <div align="center">
+        <label for="book_description">Book description</label>
+        <input type="text" id="book_description" name="book_description"><br><br>
+
+      <br />
+      </div>
+      </div>
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    {% endblock %}
+
